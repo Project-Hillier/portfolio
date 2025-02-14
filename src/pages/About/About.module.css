@@ -1,0 +1,5 @@
+.container {
+    min-height: calc(100vh - 5rem);
+    width: 100%;
+    padding: 2rem 0;
+  }

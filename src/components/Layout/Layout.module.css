@@ -1,0 +1,31 @@
+.layout {
+    width: 100vw; /* Full viewport width */
+    min-height: 100vh;
+    margin-top: 5rem;
+    background-color: var(--color-background);
+    display: flex;
+    justify-content: center;
+    position: relative; /* Add position context */
+    z-index: 1; /* Lower than navigation */
+    border: 2px solid lime; /* Keeping for visibility */
+  }
+  
+  .content {
+    width: 100%; /* Full width */
+    max-width: 1400px; /* Maximum width constraint */
+    min-height: calc(100vh - 5rem);
+    padding: 2rem; /* Consistent padding */
+    border: 2px solid red; /* Keeping for visibility */
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      padding: clamp(1rem, 5vw, 3rem);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .content {
+      padding: 1rem;
+    }
+  }

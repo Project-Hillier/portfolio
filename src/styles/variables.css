@@ -1,0 +1,21 @@
+:root {
+  /* Colors */
+  --color-background: #0a0a0a;
+  --color-text: #ffffff;
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --color-accent: #ec4899;
+  --color-surface: #1a1a1a;
+  --color-surface-hover: #2a2a2a;
+  
+  /* Typography */
+  --font-heading: system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, -apple-system, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}

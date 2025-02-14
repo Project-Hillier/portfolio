@@ -1,0 +1,9 @@
+@import 'normalize.css';
+@import './variables.css';
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
