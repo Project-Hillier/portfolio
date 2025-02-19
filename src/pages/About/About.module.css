@@ -1,5 +1,128 @@
 .container {
-    min-height: calc(100vh - 5rem);
-    width: 100%;
-    padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.achievementsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.achievementBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1s ease;
+}
+
+.achievementBlockReverse {
+  transform: translateX(-100px);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.imageContainer {
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.arrow {
+  position: absolute;
+  width: 40px;
+  height: 100px;
+  /* You can adjust these values to point to specific part of the image */
+  top: 13%;
+  left: 43%;
+  transform: translate(50px, 50px);
+  opacity: 0;
+  transition: all 1.5s ease;
+  transition-delay: 1s;
+}
+
+.arrowVisible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Arrow styling */
+.arrow::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: #000000;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Arrowhead */
+.arrow::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 16px solid #000000;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.contentContainer {
+  width: 100%;
+}
+
+.achievementTitle {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.achievementDescription {
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+  .achievementBlock {
+    flex-direction: row;
   }
+
+  .achievementBlockReverse {
+    flex-direction: row-reverse;
+  }
+
+  .imageContainer,
+  .contentContainer {
+    width: 50%;
+  }
+}
