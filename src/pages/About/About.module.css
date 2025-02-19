@@ -2,6 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 1rem;
+  border: 2px solid red;
 }
 
 .title {
@@ -58,11 +59,10 @@
   height: 100px;
   /* You can adjust these values to point to specific part of the image */
   top: 13%;
-  left: 43%;
+  left: 44%;
   transform: translate(50px, 50px);
   opacity: 0;
   transition: all 1.5s ease;
-  transition-delay: 1s;
 }
 
 .arrowVisible {

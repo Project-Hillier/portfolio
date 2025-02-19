@@ -18,9 +18,9 @@ const PhysicsSkills: React.FC<PhysicsSkillsProps> = ({
   const [isPhysicsActive, setIsPhysicsActive] = useState(false);
   const containerWidth = 800;
   const containerHeight = 800;  // Added container height
-  const minBoxWidth = 120;
-  const maxBoxWidth = 300;
-  const boxHeight = 80;
+  const minBoxWidth = 80;
+  const maxBoxWidth = 180;
+  const boxHeight = 40;
   const padding = 20;
 
   // Function to split text into lines

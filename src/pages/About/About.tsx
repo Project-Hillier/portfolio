@@ -17,17 +17,17 @@ const achievements: Achievement[] = [
   {
     title: "Full Stack Development",
     description: "Developed and deployed multiple full-stack applications using React, Node.js, and PostgreSQL. Implemented responsive designs and modern UI/UX practices while ensuring cross-browser compatibility.",
-    imageUrl: "/api/placeholder/400/300"
+    imageUrl: "/src/assets/SpaceShuttle.jpg"
   },
   {
     title: "Cloud Architecture",
     description: "Designed and implemented scalable cloud solutions using AWS services. Created efficient CI/CD pipelines and automated deployment processes for multiple projects.",
-    imageUrl: "/api/placeholder/400/300"
+    imageUrl: "/src/assets/DataCenter.jpg"
   },
   {
     title: "Team Leadership",
     description: "Led a team of 5 developers in delivering a complex e-commerce platform. Implemented agile methodologies and improved team productivity by 40%.",
-    imageUrl: "/api/placeholder/400/300"
+    imageUrl: "/src/assets/PersonalProject.jpg"
   },
 ];
 
@@ -47,8 +47,8 @@ const AboutMeSection = () => {
       },
       {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
+        rootMargin: '-100px',
+        threshold: 0.2,
       }
     );
 
@@ -66,19 +66,35 @@ const AboutMeSection = () => {
   // Separate observer for the arrow
   useEffect(() => {
     if (arrowRef.current) {
+      let hasScrolled = false;
+  
+      // Scroll handler
+      const handleScroll = () => {
+        hasScrolled = window.scrollY > 0;
+        if (hasScrolled) {
+          arrowRef.current?.classList.add(styles.arrowVisible);
+          window.removeEventListener('scroll', handleScroll);
+        }
+      };
+  
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && hasScrolled) {
               arrowRef.current?.classList.add(styles.arrowVisible);
             }
           });
         },
         { threshold: 0.1 }
       );
-
+  
+      window.addEventListener('scroll', handleScroll);
       observer.observe(arrowRef.current);
-      return () => observer.disconnect();
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        observer.disconnect();
+      };
     }
   }, []);
 
@@ -120,14 +136,17 @@ const AboutMeSection = () => {
           </div>
         ))}
       </div>
-
-      <div style={{ padding: '80px' }}/> 
+      <div style={{ 
+        padding: '80px', 
+        border: '2px solid red' 
+      }} />
+       
       <PhysicsSkills
         skills={skills} 
         width={1500}    // Custom width
         height={800}    // Custom height
       />
-
+    
     </div>
   );
 };
